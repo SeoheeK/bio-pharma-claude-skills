@@ -1,29 +1,4 @@
 # Bio-Pharma Claude Skills
-<svg width="1200" height="300" viewBox="0 0 1200 300" xmlns="http://www.w3.org/2000/svg">
-<defs>
-  <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
-    <stop offset="0%" stop-color="#0B1526"/>
-    <stop offset="100%" stop-color="#111F35"/>
-  </linearGradient>
-  <linearGradient id="tealFade" x1="0" y1="0" x2="1" y2="0">
-    <stop offset="0%" stop-color="#3FC9C4" stop-opacity="0.0"/>
-    <stop offset="100%" stop-color="#3FC9C4" stop-opacity="0.9"/>
-  </linearGradient>
-  <marker id="arrow" markerWidth="9" markerHeight="9" refX="6" refY="3" orient="auto">
-    <path d="M0,0 L6,3 L0,6 Z" fill="#3FC9C4"/>
-  </marker>
-  
-</defs>
-<rect x="0" y="0" width="1200" height="300" rx="28" fill="url(#bg)"/>
-<rect x="0.5" y="0.5" width="1199" height="299" rx="27.5" fill="none" stroke="rgba(255,255,255,0.14)" stroke-width="1"/>
-<text x="60" y="88" font-family="'SFMono-Regular',Consolas,'Noto Sans Mono CJK KR','Roboto Mono',monospace" font-size="14" letter-spacing="4" fill="#3FC9C4">BIO · PHARMA · CLAUDE SKILLS</text>
-<text x="58" y="140" font-family="'Pretendard','Apple SD Gothic Neo','Malgun Gothic','Noto Sans CJK KR','Noto Sans KR','Helvetica Neue',Arial,sans-serif" font-size="46" font-weight="800" fill="#EAF3F6">AI 신약개발 &amp; 규제과학 스킬 패키지</text>
-<text x="60" y="172" font-family="'Pretendard','Apple SD Gothic Neo','Malgun Gothic','Noto Sans CJK KR','Noto Sans KR','Helvetica Neue',Arial,sans-serif" font-size="17" fill="#8FA6B8">Target Discovery → Molecule Design → Screening → TPP/DBTL → PK/PD → Benefit-Risk → Go/No-Go</text>
-<line x1="90.0" y1="229" x2="235.71428571428572" y2="201" stroke="#3FC9C4" stroke-opacity="0.35" stroke-width="1.5"/><line x1="235.71428571428572" y1="201" x2="381.42857142857144" y2="229" stroke="#3FC9C4" stroke-opacity="0.35" stroke-width="1.5"/><line x1="381.42857142857144" y1="229" x2="527.1428571428571" y2="201" stroke="#3FC9C4" stroke-opacity="0.35" stroke-width="1.5"/><line x1="527.1428571428571" y1="201" x2="672.8571428571429" y2="229" stroke="#3FC9C4" stroke-opacity="0.35" stroke-width="1.5"/><line x1="672.8571428571429" y1="229" x2="818.5714285714287" y2="201" stroke="#3FC9C4" stroke-opacity="0.35" stroke-width="1.5"/><line x1="818.5714285714287" y1="201" x2="964.2857142857143" y2="229" stroke="#3FC9C4" stroke-opacity="0.35" stroke-width="1.5"/><line x1="964.2857142857143" y1="229" x2="1110.0" y2="201" stroke="#3FC9C4" stroke-opacity="0.35" stroke-width="1.5"/><circle cx="90.0" cy="229" r="5.5" fill="#111F35" stroke="#3FC9C4" stroke-width="2"/><text x="90.0" y="255" text-anchor="middle" font-family="'SFMono-Regular',Consolas,'Noto Sans Mono CJK KR','Roboto Mono',monospace" font-size="11" letter-spacing="1.5" fill="#8FA6B8">TARGET</text><circle cx="235.71428571428572" cy="201" r="5.5" fill="#111F35" stroke="#3FC9C4" stroke-width="2"/><text x="235.71428571428572" y="185" text-anchor="middle" font-family="'SFMono-Regular',Consolas,'Noto Sans Mono CJK KR','Roboto Mono',monospace" font-size="11" letter-spacing="1.5" fill="#8FA6B8">MOLECULE</text><circle cx="381.42857142857144" cy="229" r="5.5" fill="#111F35" stroke="#F0A94E" stroke-width="2"/><text x="381.42857142857144" y="255" text-anchor="middle" font-family="'SFMono-Regular',Consolas,'Noto Sans Mono CJK KR','Roboto Mono',monospace" font-size="11" letter-spacing="1.5" fill="#8FA6B8">SCREEN</text><circle cx="527.1428571428571" cy="201" r="5.5" fill="#111F35" stroke="#F0A94E" stroke-width="2"/><text x="527.1428571428571" y="185" text-anchor="middle" font-family="'SFMono-Regular',Consolas,'Noto Sans Mono CJK KR','Roboto Mono',monospace" font-size="11" letter-spacing="1.5" fill="#8FA6B8">TPP</text><circle cx="672.8571428571429" cy="229" r="5.5" fill="#111F35" stroke="#9A8CFF" stroke-width="2"/><text x="672.8571428571429" y="255" text-anchor="middle" font-family="'SFMono-Regular',Consolas,'Noto Sans Mono CJK KR','Roboto Mono',monospace" font-size="11" letter-spacing="1.5" fill="#8FA6B8">DBTL</text><circle cx="818.5714285714287" cy="201" r="5.5" fill="#111F35" stroke="#9A8CFF" stroke-width="2"/><text x="818.5714285714287" y="185" text-anchor="middle" font-family="'SFMono-Regular',Consolas,'Noto Sans Mono CJK KR','Roboto Mono',monospace" font-size="11" letter-spacing="1.5" fill="#8FA6B8">PK/PD</text><circle cx="964.2857142857143" cy="229" r="5.5" fill="#111F35" stroke="#E8735D" stroke-width="2"/><text x="964.2857142857143" y="255" text-anchor="middle" font-family="'SFMono-Regular',Consolas,'Noto Sans Mono CJK KR','Roboto Mono',monospace" font-size="11" letter-spacing="1.5" fill="#8FA6B8">B/R</text><circle cx="1110.0" cy="201" r="5.5" fill="#111F35" stroke="#E8735D" stroke-width="2"/><text x="1110.0" y="185" text-anchor="middle" font-family="'SFMono-Regular',Consolas,'Noto Sans Mono CJK KR','Roboto Mono',monospace" font-size="11" letter-spacing="1.5" fill="#8FA6B8">GO/NO-GO</text>
-<text x="1140" y="274" text-anchor="end" font-family="'SFMono-Regular',Consolas,'Noto Sans Mono CJK KR','Roboto Mono',monospace" font-size="11.5" letter-spacing="1" fill="#5A7286">github.com/SeoheeK/bio-pharma-claude-skills</text>
-<text x="60" y="274" font-family="'SFMono-Regular',Consolas,'Noto Sans Mono CJK KR','Roboto Mono',monospace" font-size="11.5" letter-spacing="1" fill="#5A7286">8 SKILLS · CLAUDE.AI · .skill / .md</text>
-</svg>
-<img src="assets/banner.svg" alt="Bio-Pharma Claude Skills" width="100%" />
 
 **AI 기반 신약개발 · 임상약동학(PK) · 규제과학 업무를 위한 Claude Skill 패키지 모음**
 
