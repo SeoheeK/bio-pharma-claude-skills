@@ -1,0 +1,11 @@
+# pkchat runs on the Python standard library alone -- no packages are required
+# for the numeric engine, the tool surface, or the local chatbot router.
+#
+# Optional, only for the Claude-backed conversational layer:
+#   anthropic>=0.40        # enables the LLM tool-use backend (set ANTHROPIC_API_KEY)
+#
+# Optional, if you later want to accelerate large population simulations or add
+# plotting (the engine does not import these -- they are conveniences for your
+# own analysis scripts):
+#   numpy
+#   matplotlib
