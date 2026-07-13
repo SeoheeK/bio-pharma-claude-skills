@@ -1,6 +1,7 @@
 """Test suite for the pkchat engine (pure stdlib, run with `python -m unittest`)."""
 import math
 import os
+import re
 import sys
 import unittest
 
@@ -169,6 +170,24 @@ class TestLocalRouter(unittest.TestCase):
     def test_help_fallback(self):
         out = self.r.handle("hello there")
         self.assertIn("I can", out)
+
+    def test_oral_population_peaks_after_zero(self):
+        # Regression: oral ka must be forwarded, so the peak is not at t=0.
+        out = self.r.handle("population CL=6 V1=40 dose=200 oral ka=1.0 iiv=45% n=50")
+        m = re.search(r"at t = ([0-9.]+) h", out)
+        self.assertIsNotNone(m)
+        self.assertGreater(float(m.group(1)), 0.5)
+
+
+class TestRouteGuards(unittest.TestCase):
+    def test_oral_without_ka_rejected(self):
+        out = dispatch("simulate_pk", {"CL": 5, "V1": 30, "dose": 100, "route": "oral"})
+        self.assertIn("ka", out)
+        self.assertIn("failed", out.lower())
+
+    def test_infusion_without_tinf_rejected(self):
+        out = dispatch("simulate_pk", {"CL": 5, "V1": 30, "dose": 100, "route": "infusion"})
+        self.assertIn("tinf", out)
 
 
 if __name__ == "__main__":

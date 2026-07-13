@@ -198,7 +198,8 @@ class LocalRouter:
 
     # -- handlers -----------------------------------------------------------
 
-    def _simulate(self, text):
+    def _structural_args(self, text):
+        """Parse structural parameters + dosing shared by simulate/population."""
         args = {
             "CL": self._num(text, "cl", "clearance", default=5.0),
             "V1": self._num(text, "v1", "v", "volume", default=30.0),
@@ -212,7 +213,7 @@ class LocalRouter:
         ka = self._num(text, "ka")
         if ka:
             args["ka"] = ka
-            args["route"] = "oral"
+            args["route"] = "oral"  # absorption implies an oral route
         tinf = self._num(text, "tinf", "infusion")
         if tinf and args["route"] == "infusion":
             args["tinf"] = tinf
@@ -221,7 +222,10 @@ class LocalRouter:
         if interval and n and n > 1:
             args["interval"] = interval
             args["n_doses"] = int(n)
-        return dispatch("simulate_pk", args)
+        return args
+
+    def _simulate(self, text):
+        return dispatch("simulate_pk", self._structural_args(text))
 
     def _nca(self, text):
         times, concs = self._arrays(text)
@@ -315,13 +319,8 @@ class LocalRouter:
         return dispatch("recommend_pk_case", args)
 
     def _population(self, text):
-        args = {
-            "CL": self._num(text, "cl", "clearance", default=5.0),
-            "V1": self._num(text, "v1", "v", "volume", default=30.0),
-            "dose": self._num(text, "dose", "mg", default=100.0),
-            "route": self._route(text),
-            "n_subjects": int(self._num(text, "subjects", "n", default=200)),
-        }
+        args = self._structural_args(text)  # forwards ka/Q/V2/route correctly
+        args["n_subjects"] = int(self._num(text, "subjects", "n", default=200))
         cv_cl = self._num(text, "iiv", "cv")
         iiv = {"CL": (cv_cl / 100 if cv_cl and cv_cl > 1 else cv_cl) if cv_cl else 0.3,
                "V1": 0.2}

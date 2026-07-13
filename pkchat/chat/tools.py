@@ -49,7 +49,19 @@ def _regimen_from(args: dict) -> DosingRegimen:
 
 # --- Handlers ---------------------------------------------------------------
 
+def _validate_route(args: dict):
+    """Guard against a route/parameter mismatch that would silently mis-model
+    the dose (e.g. an oral route with no absorption rate)."""
+    if args.get("route") == "oral" and args.get("ka") is None:
+        raise ValueError(
+            "oral route requires an absorption rate 'ka' -- otherwise the dose "
+            "would be modelled as an instantaneous input. Provide ka (1/h).")
+    if args.get("route") == "infusion" and not args.get("tinf"):
+        raise ValueError("infusion route requires an infusion duration 'tinf' (h).")
+
+
 def _h_simulate(args: dict) -> str:
+    _validate_route(args)
     p = _params_from(args)
     reg = _regimen_from(args)
     t_end = _opt(args, "t_end")
@@ -121,6 +133,7 @@ def _h_recommend(args: dict) -> str:
 
 
 def _h_population(args: dict) -> str:
+    _validate_route(args)
     p = _params_from(args)
     reg = _regimen_from(args)
     iiv = args.get("iiv_cv", {"CL": 0.3, "V1": 0.2})
