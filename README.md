@@ -113,6 +113,25 @@ ClinicalTrials.gov 및 FDA 심사 데이터 기반, **30개 이상 실제 임상
 
 ---
 
+## 실행 엔진: `pkchat` (챗봇 기반 PK 모델링 코드)
+
+위 스킬들이 **도메인 지식(문서)** 을 제공한다면, [`pkchat/`](pkchat/) 은 그 위에 구축된 **실제 실행 코드 레이어**입니다. 약동학 모델링을 자연어로 구동하는 챗봇 + 순수 Python 수치 엔진으로, PK 스킬(`pk-allometry-ensemble`, `pk-case-study-db` 등)의 방법론을 통계·수치·ML 코드로 구현했습니다.
+
+- **수치 코어는 표준 라이브러리만으로 동작** — numpy/scipy 불필요, 어디서나 재현 가능
+- **챗봇 레이어** — `anthropic` SDK + API 키가 있으면 Claude tool-use 루프, 없으면 규칙 기반 로컬 라우터(의존성 0)가 동일한 도구를 구동
+- **기능**: 1/2-구획·비선형 시뮬레이션(ODE+해석해), 비구획 분석(NCA), 개별·2단계 집단 PK 파라미터 추정, 동물→인간 allometry 앙상블, PopPK 케이스 추천, 집단 시뮬레이션(예측구간)
+
+```bash
+python -m pkchat.cli                                   # 대화형 REPL
+python -m pkchat.cli "simulate CL=5 V1=30 dose=100 iv" # 원샷
+python examples/demo.py                                # 전체 데모
+python -m unittest discover -s tests                   # 22개 테스트
+```
+
+자세한 내용은 [`pkchat/README.md`](pkchat/README.md) 참조.
+
+---
+
 ## 사용 방법
 
 1. 원하는 스킬의 `.zip`(또는 `.md`) 파일을 다운로드합니다.
